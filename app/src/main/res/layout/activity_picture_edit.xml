@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".PictureEdit">
+    <View
+        android:id="@+id/hdr"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="#4C5BF3"></View>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/back"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/ic_baseline_arrow_back_24"></androidx.appcompat.widget.AppCompatButton>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="5dp"
+        android:background="#4C5BF3"
+        android:text="Save"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+
+    <com.github.chrisbanes.photoview.PhotoView
+        android:layout_below="@id/hdr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/photoedt"
+        android:layout_above="@id/ftr"
+        >
+    </com.github.chrisbanes.photoview.PhotoView>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cropi"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+       android:layout_alignParentBottom="true"
+        android:text="Crop Rotate"
+        android:layout_marginLeft="100dp"
+        android:textColor="@color/white"
+        android:textSize="8dp"
+        android:drawableTop="@drawable/ic_baseline_crop_rotate_24"
+        android:background="#4C5BF3"
+        >
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/filters"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Filters"
+        android:layout_marginRight="100dp"
+        android:textColor="@color/white"
+        android:textSize="8dp"
+        android:drawableTop="@drawable/ic_baseline_photo_filter_24"
+        android:background="#4C5BF3"
+        >
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+
+    <View
+        android:id="@+id/ftr"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#4C5BF3"></View>
+
+</RelativeLayout>

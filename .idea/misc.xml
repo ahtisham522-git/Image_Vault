@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/drawable-v24/btnbck.xml" value="0.12135416666666667" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/drawable-v24/ic_baseline_add_24.xml" value="0.15" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/drawable-v24/ic_baseline_arrow_back_24.xml" value="0.15648148148148147" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/drawable-v24/textbck.xml" value="0.12135416666666667" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.2175925925925926" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/drawable/ic_launcher_background.xml" value="0.15" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.15" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/activity_changepassword.xml" value="0.17135416666666667" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/activity_image__display_.xml" value="0.11614583333333334" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/activity_image_display.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/activity_passcodeset.xml" value="0.1983695652173913" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/activity_password.xml" value="0.20520833333333333" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/activity_picture_edit.xml" value="0.21" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/activity_rotate__crop_.xml" value="0.16510416666666666" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/changepassword.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/deletefolderpopup.xml" value="0.15520833333333334" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/deleteimagepopup.xml" value="0.20520833333333333" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/deletepopup.xml" value="0.20520833333333333" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/foldernamepopup.xml" value="0.17916666666666667" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/fragment_blank.xml" value="0.12771739130434784" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/indicator_holder.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/pic_holder_item.xml" value="0.2028985507246377" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/picture_browser.xml" value="0.10520833333333333" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/picture_browser_pager.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/layout/picture_folder_item.xml" value="0.21041666666666667" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/menu/action_bar.xml" value="0.20520833333333333" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.11614583333333334" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.15" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.15" />
+        <entry key="..\:/AndroidStudioProjects/Testing/app/src/main/res/xml/root_preferences.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

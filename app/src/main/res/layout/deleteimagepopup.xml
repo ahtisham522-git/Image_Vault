@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    >
+
+
+    <TextView
+        android:id="@+id/fnameedt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="7dp"
+        android:maxLines="1"
+        android:paddingStart="12dp"
+        android:paddingRight="10dp"
+        android:text="This file will be deleted Permanently from this device."
+        android:textColor="#000000"
+        android:textSize="14dp">
+
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/delimgbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fnameedt"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="23.4dp"
+        android:layout_marginRight="105dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:text="OK"
+        android:textColor="#4C5BF3"
+        android:textSize="13dp"
+
+        ></TextView>
+
+    <TextView
+        android:id="@+id/canclimgbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fnameedt"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/white"
+        android:clickable="true"
+        android:text="Cancel"
+        android:textColor="#B71C1C"
+        android:textSize="13dp"
+
+        ></TextView>
+
+</RelativeLayout>

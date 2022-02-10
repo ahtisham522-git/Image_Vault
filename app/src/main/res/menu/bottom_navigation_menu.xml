@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_1"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_crop_rotate_24"
+        android:title="Crop Rotate"
+        android:iconTint="@color/white"
+        />
+    <item
+        android:id="@+id/page_2"
+        android:enabled="false"
+        android:icon="@drawable/ic_baseline_photo_filter_24"
+        android:iconTint="@color/white"
+        android:title="Filters"/>
+</menu>

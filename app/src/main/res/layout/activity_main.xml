@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <com.example.testing.AutoFitRecyclerView
+            android:id="@+id/folderRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            android:columnWidth="@dimen/folder_column_width"></com.example.testing.AutoFitRecyclerView>
+
+            <!--app:fastScrollEnabled="true"
+       app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
+       app:fastScrollHorizontalTrackDrawable="@drawable/line_drawable"
+       app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
+       app:fastScrollVerticalTrackDrawable="@drawable/line_drawable"-->
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addfold"
+            android:layout_width="67dp"
+            android:layout_height="65dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="18dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/ic_baseline_add_circle_24"></androidx.appcompat.widget.AppCompatButton>
+
+
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/empty"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+</FrameLayout>
