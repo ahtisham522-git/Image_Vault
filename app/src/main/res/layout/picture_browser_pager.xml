@@ -25,7 +25,7 @@
 <!--this can be used for chrisbane photo view library-->
 <!--    -->
     <com.github.chrisbanes.photoview.PhotoView
-        android:id="@+id/image"
+        android:id="@+id/imagevie"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/hdr"></com.github.chrisbanes.photoview.PhotoView>

@@ -112,6 +112,7 @@ public class PictureEdit extends AppCompatActivity {
             startActivity(i);
             try {
                 verifyStoragePermissions(PictureEdit.this);
+
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
                 String imageFileName = "IMG_CROP_" + timeStamp+".jpg";
 

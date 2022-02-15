@@ -1,5 +1,6 @@
 package com.example.testing;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +8,8 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
@@ -32,7 +35,7 @@ public class recyclerViewPagerImageIndicator extends RecyclerView.Adapter<indica
     }
 
     @Override
-    public void onBindViewHolder(@NonNull indicatorHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull indicatorHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         final pictureFacer pic = pictureList.get(position);
 

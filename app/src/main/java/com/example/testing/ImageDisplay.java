@@ -15,6 +15,7 @@ import android.provider.MediaStore;
 import android.transition.Fade;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -22,6 +23,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,7 +48,7 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
     String foldePath;
     Dialog dialogdel;
     TextView cancl,del;
-    ImageButton trsh;
+
     TextView folderName,eepty;
     String fldrname;
     Button add, back;
@@ -54,27 +56,31 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
     File src;
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // API 5+ solution
+                maindash();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_display);
-        getSupportActionBar().hide();
-        folderName = findViewById(R.id.foldername);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        //getActionBar().setIcon(R.drawable.my_icon);
         back = findViewById(R.id.back);
         eepty =findViewById(R.id.empy);
-
-        trsh=findViewById(R.id.trash);
-        folderName.setText(getIntent().getStringExtra("folderName"));
         fldrname = (getIntent().getStringExtra("folderName"));
-
-        if(fldrname.equals("Main Folder"))
-        {
-            trsh.setVisibility(View.GONE);
-        }
-        else
-            {
-                trsh.setVisibility(View.VISIBLE);
-        }
-
+        actionBar.setTitle(fldrname);
         foldePath = getIntent().getStringExtra("folderPath");
         allpictures = new ArrayList<>();
         imageRecycler = findViewById(R.id.recycler);
@@ -105,12 +111,12 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
                 load.setVisibility(View.GONE);
             }
         }
-        trsh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialogdel.show();
-            }
-        });
+//        trsh.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dialogdel.show();
+//            }
+//        });
         cancl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,14 +144,6 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                maindash();
-
-            }
-        });
 
     }
     // Export Image Functions
@@ -258,13 +256,6 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
         return images;
 
         }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.action_bar, menu);
-        return true;
-    }
-
     void deleteRecursive(File fileOrDirectory) {
 
         if (fileOrDirectory.isDirectory())

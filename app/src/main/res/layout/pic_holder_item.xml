@@ -23,7 +23,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                android:background="@color/white"
+                />
+
+            <ImageView
+                android:id="@+id/image_select"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="#740D47A1"
+                 />
 
         </FrameLayout>
 

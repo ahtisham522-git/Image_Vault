@@ -12,6 +12,8 @@ import android.widget.EditText;
 
 import com.hanks.passcodeview.PasscodeView;
 
+import java.util.Objects;
+
 public class Password extends AppCompatActivity {
     PasscodeView passcode;
     EditText passen;
@@ -27,7 +29,7 @@ public class Password extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         passen=findViewById(R.id.pass);
         pasv = findViewById(R.id.passvery);

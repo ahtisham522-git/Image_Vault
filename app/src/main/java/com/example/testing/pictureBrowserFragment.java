@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -194,10 +196,12 @@ public class pictureBrowserFragment extends Fragment implements imageIndicatorLi
 
             View view = layoutinflater.inflate(R.layout.picture_browser_pager,null);
 
-              image = view.findViewById(R.id.image);
+              image = view.findViewById(R.id.imagevie);
               edtpbtn=view.findViewById(R.id.editbutton);
               back=view.findViewById(R.id.back);
               trsh=view.findViewById(R.id.trashimg);
+
+            ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
             Dialog dialogimg = new Dialog(getActivity());
             dialogimg.setContentView(R.layout.deleteimagepopup);
@@ -256,7 +260,6 @@ public class pictureBrowserFragment extends Fragment implements imageIndicatorLi
                     }else{
                         indicatorRecycler.setVisibility(View.GONE);
                     }
-
                     /**
                      * uncomment the below condition and comment the one above to control recyclerView visibility automatically
                      * when image is clicked
@@ -276,7 +279,9 @@ back.setOnClickListener(new View.OnClickListener()
 {
     public void onClick(View v)
     {
-        getActivity().onBackPressed();
+        //Refreshing Activity Without lossing data on Object
+        getActivity().finish();
+        startActivity(getActivity().getIntent());
 
     }
 });
