@@ -6,8 +6,6 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     >
-
-
     <TextView
         android:id="@+id/fnameedt"
         android:layout_width="wrap_content"
@@ -22,7 +20,6 @@
         android:text="This file will be deleted Permanently from this device."
         android:textColor="#000000"
         android:textSize="14dp">
-
     </TextView>
 
 

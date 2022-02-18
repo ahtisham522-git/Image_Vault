@@ -53,10 +53,10 @@ public class pictureBrowserFragment extends Fragment implements imageIndicatorLi
     private ImagesPagerAdapter pagingImages;
     private int previousSelected = -1;
 
-    public pictureBrowserFragment(){
-
+    public pictureBrowserFragment()
+    {
+        
     }
-
     public pictureBrowserFragment(ArrayList<pictureFacer> allImages, int imagePosition, Context anim) {
         this.allImages = allImages;
         this.position = imagePosition;
@@ -67,16 +67,11 @@ public class pictureBrowserFragment extends Fragment implements imageIndicatorLi
         pictureBrowserFragment fragment = new pictureBrowserFragment(allImages,imagePosition,anim);
         return fragment;
     }
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         return inflater.inflate(R.layout.picture_browser, container, false);
-
-
-
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -152,8 +147,8 @@ public class pictureBrowserFragment extends Fragment implements imageIndicatorLi
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 /**
-                 *  uncomment the below condition to control recyclerView visibility automatically
-                 *  when image is clicked also uncomment the condition set on the image's onClickListener in the ImagesPagerAdapter adapter
+                   uncomment the below condition to control recyclerView visibility automatically
+                   when image is clicked also uncomment the condition set on the image's onClickListener in the ImagesPagerAdapter adapter
                  */
                 /*if(viewVisibilityController == 0){
                     indicatorRecycler.setVisibility(View.VISIBLE);
@@ -168,8 +163,8 @@ public class pictureBrowserFragment extends Fragment implements imageIndicatorLi
     }
 
     @Override
-    public void onImageIndicatorClicked(int ImagePosition) {
-
+    public void onImageIndicatorClicked(int ImagePosition)
+    {
         //the below lines of code highlights the currently select image in  the indicatorRecycler with respect to the viewPager position
         if(previousSelected != -1){
             allImages.get(previousSelected).setSelected(false);
@@ -182,8 +177,8 @@ public class pictureBrowserFragment extends Fragment implements imageIndicatorLi
         imagePager.setCurrentItem(ImagePosition);
     }
 
-    private class ImagesPagerAdapter extends PagerAdapter {
-
+    private class ImagesPagerAdapter extends PagerAdapter
+    {
         @Override
         public int getCount() {
             return allImages.size();

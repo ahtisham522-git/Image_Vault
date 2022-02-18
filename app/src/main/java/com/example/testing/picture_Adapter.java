@@ -65,8 +65,6 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
 
 
     private ArrayList<String> selectedpicturelist= new ArrayList<String>();
-
-
     private final itemClickListener picListerner;
 
     public picture_Adapter(ArrayList<pictureFacer> pictureList, Context pictureContx,itemClickListener picListerner) {
@@ -79,16 +77,13 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
     @Override
     public PicHolder onCreateViewHolder(@NonNull ViewGroup container, int position) {
 
-        // check here the viewType and return RecyclerView.ViewHolder based on view type
+         //check here the viewType and return RecyclerView.ViewHolder based on view type
 
             LayoutInflater inflater = LayoutInflater.from(container.getContext());
-        View view = inflater.inflate(R.layout.pic_holder_item,container, false);
+            View view = inflater.inflate(R.layout.pic_holder_item,container, false);
             return new PicHolder(view);
 
-
-        //define second view here on long press
-
-
+          //define second view here on long press
 
     }
 
@@ -100,7 +95,7 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
 
         Glide.with(pictureContx).load(image.getPicturePath())
                 .into(holder.picture);
-        setTransitionName(holder.picture, String.valueOf(position) + "_image");
+        setTransitionName(holder.picture, String.valueOf(position) + "_images");
         holder.picture.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -108,12 +103,10 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                 if(isenable)
                 {
                     clickedpictures(holder);
-
                 }
                 else{
                     picListerner.onPicClicked(holder,position, pictureList);
                 }
-
            //     Toast.makeText(pictureContx, holder.getAdapterPosition(), LENGTH_LONG).show();
             }
 
@@ -154,9 +147,7 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                         public boolean onPrepareActionMode(ActionMode actionMode, Menu menu)
                         {
                             isSelected=true;
-
                             clickedpictures(holder);
-
                             return false;
                         }
 
@@ -172,8 +163,6 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                             dialogimg.getWindow().getAttributes().windowAnimations= R.style.Theme_Testing;
                             TextView cancl = dialogimg.findViewById(R.id.canclimgbtn);
                             TextView del = dialogimg.findViewById(R.id.delimgbtn);
-
-
 
 
                             switch(id)
@@ -203,7 +192,6 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                                 for (int i=0;i<selectedpicturelist.size();i++)
                                     {
 
-
                                         File file = new File(selectedpicturelist.get(i));
                                         deleteimgRecursive(file);
                                     }
@@ -212,8 +200,6 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                                     {
 
                                     }
-
-
                                     actionMode.finish();
                                     break;
 
@@ -221,13 +207,10 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
 
                                     for (int i=0;i<selectedpicturelist.size();i++)
                                     {
-
                                         Path file =Paths.get(selectedpicturelist.get(i));
                                         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
                                         String name = "COPIED" + timeStamp + ".jpg";
-
                                         Path dst = Paths.get(Paths.get(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)  + "/Restored/"+name).toString());
-
                                         copyimg(file,dst);
 
                                     }
@@ -250,7 +233,6 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                                         Moveimg(file,dst);
                                     }
 
-
                                     if(selectedpicturelist.size() == 0)
                                     {
 
@@ -263,7 +245,6 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                                 {
                                     isSelected=false;
                                     selectedpicturelist.clear();
-
                                 }
                                     else
                                         {
@@ -289,7 +270,6 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                             isSelected= false;
                             selectedpicturelist.clear();
                             notifyDataSetChanged();
-
                         }
                     };
 
@@ -298,21 +278,14 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                 else
                     {
                         clickedpictures(holder);
-
-
                     }
-
                 return true;
             }
         });
-
         holder.getAdapterPosition();
-
     }
-
     void Moveimg(Path src,Path dst)
     {
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             try {
                 move(src,dst);
@@ -320,7 +293,6 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                 e.printStackTrace();
             }
         }
-
     }
 
    void copyimg(Path src,Path dst)
@@ -365,14 +337,140 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                 selectedpicturelist.remove(s);
         }
 
-
     }
-
     @Override
     public int getItemCount() {
         return pictureList.size();
     }
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

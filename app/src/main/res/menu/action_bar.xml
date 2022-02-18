@@ -4,8 +4,10 @@
     >
     <item android:id="@+id/seting"
         android:title="Change Passsword"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
     <item android:id="@+id/help"
         android:title="Help"
-        app:showAsAction="never" />
+        app:showAsAction="always"
+        android:icon="@drawable/ic_baseline_help_24"
+        />
 </menu>

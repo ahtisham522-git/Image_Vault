@@ -19,15 +19,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.google.android.material.button.MaterialButton;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -37,8 +45,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ImageDisplay extends AppCompatActivity implements itemClickListener {
-
+public class ImageDisplay extends AppCompatActivity implements itemClickListener
+{
     private static final int PICK_IMAGE_MULTIPLE = 1;
     private static final int PERMISSION_REQUEST_CODE = 7;
     private static final int GALLERY_REQUEST = 1;
@@ -46,39 +54,29 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
     ArrayList<pictureFacer> allpictures;
     ProgressBar load;
     String foldePath;
-    Dialog dialogdel;
+    Dialog dialogdel,dialogps;
     TextView cancl,del;
-
-    TextView folderName,eepty;
+    TextView eepty;
     String fldrname;
     Button add, back;
-    File dst;
-    File src;
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                // API 5+ solution
-                maindash();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
+    TextView canclps,okps;
+    EditText medit;
+    SwitchCompat swtch;
+    Boolean state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_display);
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         //getActionBar().setIcon(R.drawable.my_icon);
+
+
         back = findViewById(R.id.back);
-        eepty =findViewById(R.id.empy);
+        eepty = findViewById(R.id.empy);
         fldrname = (getIntent().getStringExtra("folderName"));
         actionBar.setTitle(fldrname);
         foldePath = getIntent().getStringExtra("folderPath");
@@ -88,35 +86,40 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
         imageRecycler.addItemDecoration(new MarginDecoration(this));
         imageRecycler.hasFixedSize();
         load = findViewById(R.id.loader);
+
+        dialogps = new Dialog(this);
+        dialogps.setContentView(R.layout.folderpasswordpopup);
+        dialogps.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogps.setCancelable(false);
+        dialogps.getWindow().getAttributes().windowAnimations = R.style.Theme_Testing;
+
+        canclps = dialogps.findViewById(R.id.canclfdrbtn);
+        okps = dialogps.findViewById(R.id.setfdrbtn);
+        medit = dialogps.findViewById(R.id.fnameedt);
+
+        Boolean switchState;
+
         dialogdel = new Dialog(this);
         dialogdel.setContentView(R.layout.deletefolderpopup);
-        dialogdel.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogdel.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialogdel.setCancelable(false);
-        dialogdel.getWindow().getAttributes().windowAnimations= R.style.Theme_Testing;
-        cancl=dialogdel.findViewById(R.id.canclbtn);
-        del=dialogdel.findViewById(R.id.delbtn);
+        dialogdel.getWindow().getAttributes().windowAnimations = R.style.Theme_Testing;
+        cancl = dialogdel.findViewById(R.id.canclbtn);
+        del = dialogdel.findViewById(R.id.delbtn);
 
-        if (allpictures.isEmpty())
-        {
+        if (allpictures.isEmpty()) {
             allpictures = getAllImagesByFolder(foldePath);
-            if(allpictures.isEmpty())
-            {
+            if (allpictures.isEmpty()) {
                 eepty.setVisibility(View.VISIBLE);
                 load.setVisibility(View.GONE);
-            }
-            else
-                {
+            } else {
                 load.setVisibility(View.VISIBLE);
                 imageRecycler.setAdapter(new picture_Adapter(allpictures, ImageDisplay.this, this));
                 load.setVisibility(View.GONE);
             }
         }
-//        trsh.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                dialogdel.show();
-//            }
-//        });
+
+        // folder delete
         cancl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,19 +127,18 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
             }
         });
 
-        del.setOnClickListener(new View.OnClickListener()
-        {
+        del.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 String root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
-                File file = new File(root + "/Private Storage/"+fldrname+"/");
+                File file = new File(root + "/Private Storage/" + fldrname + "/");
                 deleteRecursive(file);
                 dialogdel.hide();
                 maindash();
             }
         });
 
+        //image add
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,7 +147,63 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
         });
 
 
+        //folder password
+        okps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogps.cancel();
+
+
+            }
+        });
+        canclps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogps.cancel();
+
+
+            }
+        });
+
+
+//
+//        swtch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                if (isChecked)
+//                {
+//                        state=true;
+//
+//                }
+//                else {
+//                    state=false;
+//                }
+//            }
+//        });
+
+//        swtch =(SwitchCompat) findViewById(R.id.swich1);
+//
+//        swtch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+//
+//            {
+//                if (swtch.isChecked()) {
+//                    state = true;
+//
+//                    swtch.setChecked(true);
+//
+//                } else {
+//                    state = false;
+//                    swtch.setChecked(false);
+//                }
+//
+//            }
+//        });
+
+
     }
+
+
     // Export Image Functions
     public void buttonPickImage() {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
@@ -191,6 +249,27 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
     ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},PERMISSION_REQUEST_CODE);
 }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.fdrpasswordset,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected( @NonNull MenuItem item ) {
+
+        switch (item.getItemId())
+        {
+            case R.id.setpass:
+                dialogps.show();
+                break;
+
+            case R.id.delfolder:
+            dialogdel.show();
+            break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
     @Override
