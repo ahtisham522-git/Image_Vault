@@ -3,6 +3,8 @@ package com.example.testing;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,16 +15,11 @@ import java.util.ArrayList;
 
 public class pictureFolderAdapter extends RecyclerView.Adapter<FolderHolder>{
 
+    SharedPreferences sharedPreferences;
     private ArrayList<imageFolder> folders;
     private Context folderContx;
     private itemClickListener listenToClick;
 
-    /**
-     *
-     * @param folders An ArrayList of String that represents paths to folders on the external storage that contain pictures
-     * @param folderContx The Activity or fragment Context
-     * @param listen interFace for communication between adapter and fragment or activity
-     */
     public pictureFolderAdapter(ArrayList<imageFolder> folders, Context folderContx, itemClickListener listen) {
         this.folders = folders;
         this.folderContx = folderContx;
@@ -52,10 +49,16 @@ public class pictureFolderAdapter extends RecyclerView.Adapter<FolderHolder>{
         holder.folderSize.setText(folderSizeString);
         holder.folderName.setText(text);
 
-        holder.folderPic.setOnClickListener(new View.OnClickListener() {
+        holder.folderPic.setOnClickListener(new View.OnClickListener()
+        {
+
+
             @Override
             public void onClick(View v) {
+
                 listenToClick.onPicClicked(folder.getPath(),folder.getFolderName());
+
+
             }
         });
 

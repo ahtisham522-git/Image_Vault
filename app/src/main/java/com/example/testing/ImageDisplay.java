@@ -5,7 +5,9 @@ import static com.example.testing.PictureEdit.verifyStoragePermissions;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -62,12 +64,18 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
     TextView canclps,okps;
     EditText medit;
     SwitchCompat swtch;
-    Boolean state;
+    String stat;
+    SharedPreferences sharedPreferences;
+
+    private static final String SHARED_PREF_NAME = "folderpasscode";
+    private static final String foldername="name";
+    private static final String lockstatus ="lockstate";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_display);
+        sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -96,8 +104,44 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
         canclps = dialogps.findViewById(R.id.canclfdrbtn);
         okps = dialogps.findViewById(R.id.setfdrbtn);
         medit = dialogps.findViewById(R.id.fnameedt);
+        swtch =dialogps.findViewById(R.id.swich1);
 
-        Boolean switchState;
+        swtch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                if(swtch.isChecked())
+                {
+                   stat=  swtch.getTextOn().toString();
+                }
+                else
+                    {
+                        stat.toString();
+                }
+                stat.toString();
+            }
+        });
+
+        okps.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view)
+            {
+                if(stat.equals("on"))
+                {
+
+                    SharedPreferences.Editor editor =sharedPreferences.edit();
+                    editor.putString(foldername,fldrname);
+                    editor.putString(lockstatus,"on");
+
+                    editor.apply();
+
+                }
+                dialogps.dismiss();
+            }
+        }
+
+        );
+
+
 
         dialogdel = new Dialog(this);
         dialogdel.setContentView(R.layout.deletefolderpopup);
@@ -148,14 +192,7 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
 
 
         //folder password
-        okps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialogps.cancel();
 
-
-            }
-        });
         canclps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -164,42 +201,6 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
 
             }
         });
-
-
-//
-//        swtch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked)
-//                {
-//                        state=true;
-//
-//                }
-//                else {
-//                    state=false;
-//                }
-//            }
-//        });
-
-//        swtch =(SwitchCompat) findViewById(R.id.swich1);
-//
-//        swtch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
-//
-//            {
-//                if (swtch.isChecked()) {
-//                    state = true;
-//
-//                    swtch.setChecked(true);
-//
-//                } else {
-//                    state = false;
-//                    swtch.setChecked(false);
-//                }
-//
-//            }
-//        });
-
 
     }
 

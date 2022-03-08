@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -55,7 +56,9 @@ public class MainActivity extends AppCompatActivity implements itemClickListener
     String foldername;
     Lockstate ps;
     Boolean signal =false;
+    SharedPreferences sharedPreferences;
 
+    private static final String SHARED_PREF_NAME = "folderpasscode";
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 
@@ -150,8 +153,12 @@ public class MainActivity extends AppCompatActivity implements itemClickListener
             }
         });
 
+        sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+        String foldername=sharedPreferences.getString("foldername","");
+        String lockstate=sharedPreferences.getString("lockstatus","");
 
-     cancel.setOnClickListener(new View.OnClickListener()
+
+        cancel.setOnClickListener(new View.OnClickListener()
     {
         @Override
         public void onClick(View view)
