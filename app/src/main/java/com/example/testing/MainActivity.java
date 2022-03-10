@@ -50,15 +50,21 @@ public class MainActivity extends AppCompatActivity implements itemClickListener
     RecyclerView folderRecycler;
     TextView empty;
     Button addfolder;
-    Dialog dialog;
+    Dialog dialog, dialogt;
     Button cancel,ok;
-    EditText medit;
+    EditText medit,passwordchk;
     String foldername;
+    String foldtname;
+    String lockstate;
+    TextView canclps,okps;
     Lockstate ps;
     Boolean signal =false;
     SharedPreferences sharedPreferences;
 
     private static final String SHARED_PREF_NAME = "folderpasscode";
+    private static final String foldersname="name";
+    private static final String lockstatus ="lockstate";
+
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 
@@ -80,6 +86,19 @@ public class MainActivity extends AppCompatActivity implements itemClickListener
         cancel=dialog.findViewById(R.id.cancelbtn);
         ok=dialog.findViewById(R.id.okbtn);
         medit=dialog.findViewById(R.id.fnameedt);
+
+
+        dialogt = new Dialog(this);
+        dialogt.setContentView(R.layout.askpassword);
+        dialogt.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogt.setCancelable(false);
+        dialogt.getWindow().getAttributes().windowAnimations = R.style.Theme_Testing;
+
+        canclps = dialogt.findViewById(R.id.canclfdrbtn);
+        okps = dialogt.findViewById(R.id.setfdrbtn);
+        passwordchk = dialogt.findViewById(R.id.fdrpassword);
+
+
 
         ProcessLifecycleOwner.get().getLifecycle().addObserver((LifecycleObserver) MainActivity.this);
 
@@ -148,14 +167,15 @@ public class MainActivity extends AppCompatActivity implements itemClickListener
             @Override
             public void onClick(View view)
             {
-              dialog.show();
+                dialog.show();
                 medit.setText("");
+
             }
         });
 
         sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
-        String foldername=sharedPreferences.getString("foldername","");
-        String lockstate=sharedPreferences.getString("lockstatus","");
+         foldtname=sharedPreferences.getString(foldersname,null);
+         lockstate=sharedPreferences.getString(lockstatus,null);
 
 
         cancel.setOnClickListener(new View.OnClickListener()
@@ -262,12 +282,47 @@ public class MainActivity extends AppCompatActivity implements itemClickListener
     {
     }
     @Override
-    public void onPicClicked(String pictureFolderPath,String folderName) {
-        Intent move = new Intent(MainActivity.this,ImageDisplay.class);
-        move.putExtra("folderPath",pictureFolderPath);
-        move.putExtra("folderName",folderName);
-        //move.putExtra("recyclerItemSize",getCardsOptimalWidth(4));
-        startActivity(move);
+    public void onPicClicked(String pictureFolderPath,String folderName)
+    {
+        if(folderName.equals(foldtname) && lockstate.equals("on"))
+        {
+           dialogt.show();
+            okps.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View view)
+                {
+                    if(passwordchk.getText().toString().equals("1250"))
+                    {
+                        passwordchk.setText("");
+                        dialogt.dismiss();
+                        Intent move = new Intent(MainActivity.this, ImageDisplay.class);
+                        move.putExtra("folderPath", pictureFolderPath);
+                        move.putExtra("folderName", folderName);
+                        //move.putExtra("recyclerItemSize",getCardsOptimalWidth(4));
+                        startActivity(move);
+                        finish();
+                    }
+                    else{
+                        passwordchk.setError("Wrong Password");
+                        passwordchk.setText("");
+                        passwordchk.setHint("Renter the Password");
+                    }
+                }
+            });
+            canclps.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialogt.hide();
+                }
+            });
+        }
+
+        else {
+            Intent move = new Intent(MainActivity.this, ImageDisplay.class);
+            move.putExtra("folderPath", pictureFolderPath);
+            move.putExtra("folderName", folderName);
+            //move.putExtra("recyclerItemSize",getCardsOptimalWidth(4));
+            startActivity(move);
+        }
     }
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 

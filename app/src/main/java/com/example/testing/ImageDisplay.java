@@ -68,13 +68,14 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
     SharedPreferences sharedPreferences;
 
     private static final String SHARED_PREF_NAME = "folderpasscode";
-    private static final String foldername="name";
+    private static final String foldersname="name";
     private static final String lockstatus ="lockstate";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_display);
+
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
 
         ActionBar actionBar = getSupportActionBar();
@@ -129,20 +130,15 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
                 {
 
                     SharedPreferences.Editor editor =sharedPreferences.edit();
-                    editor.putString(foldername,fldrname);
+                    editor.putString(foldersname,fldrname);
                     editor.putString(lockstatus,"on");
-
                     editor.apply();
-
                 }
                 dialogps.dismiss();
             }
         }
 
         );
-
-
-
         dialogdel = new Dialog(this);
         dialogdel.setContentView(R.layout.deletefolderpopup);
         dialogdel.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -198,20 +194,15 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
             public void onClick(View view) {
                 dialogps.cancel();
 
-
             }
         });
-
     }
-
-
     // Export Image Functions
     public void buttonPickImage() {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
         startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
     }
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -243,8 +234,6 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
                     }
             }
     }
-
-
     private void askPermission()
 {
     ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},PERMISSION_REQUEST_CODE);
@@ -266,8 +255,21 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
                 break;
 
             case R.id.delfolder:
-            dialogdel.show();
+
+                if(fldrname.equals("Main Folder"))
+                {
+                   Toast.makeText(ImageDisplay.this,"Main Album Cannot be deleted ",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    dialogdel.show();
+
+                }
             break;
+
+            case android.R.id.home:
+                this.finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -295,7 +297,6 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
     public void onPicClicked(String pictureFolderPath,String folderName)
     {
     }
-
     public ArrayList<pictureFacer> getAllImagesByFolder(String path) {
         ArrayList<pictureFacer> images = new ArrayList<>();
 
@@ -320,7 +321,6 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
                 String picname = picturename.get(s);
                 String pcpaths = picturePaths.get(s);
              //   String numofpc = picturesize.get(s).toString();
-
                 if(pcpaths==null)
                 {
                     eepty.setVisibility(View.VISIBLE);
@@ -334,7 +334,6 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
                 }
             }
         return images;
-
         }
     void deleteRecursive(File fileOrDirectory) {
 
@@ -343,7 +342,6 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
                 deleteRecursive(child);
 
         fileOrDirectory.delete();
-
     }
 
     void maindash()
