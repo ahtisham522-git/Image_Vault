@@ -13,8 +13,10 @@ public class FolderHolder extends RecyclerView.ViewHolder {
     TextView folderName;
     //set textview for foldersize
     TextView folderSize;
-
     CardView folderCard;
+
+    TextView textview;
+    ImageView ivcheckbox;
 
     public FolderHolder(@NonNull View itemView) {
         super(itemView);
@@ -22,5 +24,6 @@ public class FolderHolder extends RecyclerView.ViewHolder {
         folderName = itemView.findViewById(R.id.folderName);
         folderSize = itemView.findViewById(R.id.folderSize);
         folderCard = itemView.findViewById(R.id.folderCard);
+        ivcheckbox=itemView.findViewById(R.id.iv_checkbox);
     }
 }

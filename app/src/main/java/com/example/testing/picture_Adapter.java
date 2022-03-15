@@ -143,6 +143,7 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                             return true;
                         }
 
+
                         @Override
                         public boolean onPrepareActionMode(ActionMode actionMode, Menu menu)
                         {
@@ -282,6 +283,8 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                 return true;
             }
         });
+
+
         holder.getAdapterPosition();
     }
     void Moveimg(Path src,Path dst)

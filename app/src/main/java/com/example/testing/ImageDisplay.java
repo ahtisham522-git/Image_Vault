@@ -268,7 +268,8 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
             break;
 
             case android.R.id.home:
-                this.finish();
+              Intent intent = new Intent(ImageDisplay.this,MainActivity.class);
+              startActivity(intent);
                 return true;
         }
         return super.onOptionsItemSelected(item);
