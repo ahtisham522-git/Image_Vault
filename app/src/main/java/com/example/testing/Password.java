@@ -34,8 +34,6 @@ public class Password extends AppCompatActivity {
         passen=findViewById(R.id.pass);
         pasv = findViewById(R.id.passvery);
 
-
-
         sharedPreferences  = getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         String pascode =sharedPreferences.getString(KEY_PASS,null);
 

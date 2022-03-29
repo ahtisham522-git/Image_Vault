@@ -4,57 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="#FFFFFF"
     >
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/txtvi"
-    android:text="Create a Folder"
-    android:textSize="22dp"
-    android:layout_marginTop="20dp"
-    android:layout_centerHorizontal="true"
-    android:background="@color/white"
-    android:textColor="#404040"
-    ></TextView>
+
 
     <EditText
-        android:id="@+id/fnameedt"
+        android:id="@+id/ptext"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/txtvi"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="7dp"
         android:background="@drawable/textbck"
-        android:paddingRight="10dp"
-        android:paddingStart="12dp"
-        android:textColor="#9C9C9C"
+        android:hint="Enter Text"
         android:maxLines="1"
-        android:hint="Enter Folder Name"
+        android:paddingStart="12dp"
+        android:paddingRight="10dp"
+        android:textColor="#838383"
         android:textSize="15dp">
 
     </EditText>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/okbtn"
+        android:id="@+id/adtokbtn"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/fnameedt"
+        android:layout_below="@+id/ptext"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/btnbck"
+        android:textColor="@color/white"
         android:clickable="false"
         android:text="OK"></androidx.appcompat.widget.AppCompatButton>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/cancelbtn"
+        android:id="@+id/adtcnclbtn"
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:text="Cancel"
-        android:layout_below="@+id/fnameedt"
+        android:layout_below="@+id/ptext"
         android:background="@drawable/btnbck"
+        android:textColor="@color/white"
         android:layout_alignParentRight="true"
         android:layout_marginRight="50dp"
         android:layout_marginTop="10dp"

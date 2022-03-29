@@ -1,18 +1,13 @@
 package com.example.testing;
 
-import static android.widget.Toast.LENGTH_LONG;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.collection.CircularArray;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Environment;
@@ -23,33 +18,21 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.bumptech.glide.annotation.GlideModule;
-import com.bumptech.glide.module.AppGlideModule;
-import com.bumptech.glide.request.RequestOptions;
-
 import static androidx.core.view.ViewCompat.setTransitionName;
 import static java.nio.file.Files.copy;
 import static java.nio.file.Files.move;
-import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 //adapter of folder that hold images
 
@@ -65,6 +48,7 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
 
 
     private ArrayList<String> selectedpicturelist= new ArrayList<String>();
+
     private final itemClickListener picListerner;
 
     public picture_Adapter(ArrayList<pictureFacer> pictureList, Context pictureContx,itemClickListener picListerner) {
@@ -139,7 +123,7 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
                         public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
 
                             MenuInflater menuInflater=actionMode.getMenuInflater();
-                            menuInflater.inflate(R.menu.menu,menu);
+                            menuInflater.inflate(R.menu.editmenu,menu);
                             return true;
                         }
 
@@ -321,6 +305,7 @@ public class picture_Adapter extends RecyclerView.Adapter<PicHolder> {
         }
 
     }
+
 
     private void clickedpictures(PicHolder holder)
     {

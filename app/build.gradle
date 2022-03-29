@@ -4,6 +4,7 @@ plugins {
 
 android {
     compileSdk 32
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.example.testing"
@@ -13,6 +14,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        renderscriptTargetApi 21
+        renderscriptSupportModeEnabled true
     }
 
     buildTypes {
@@ -42,22 +45,22 @@ dependencies {
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'com.konaire.numeric-keyboard:numeric-keyboard:1.2.0'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.5.+'
-
     implementation "androidx.lifecycle:lifecycle-common-java8:2.4.0"
+    implementation 'com.github.sarthakdoshi04:text-on-image:0.1.0'
 
+    implementation 'com.github.zomato:androidphotofilters:1.0.2'
+    
     def lifecycle_version = "1.1.1"
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
     // alternatively - Lifecycles only (no ViewModel or LiveData).
     //     Support library depends on this lightweight import
     implementation "android.arch.lifecycle:runtime:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-process:2.2.0"
+
+
+
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
-
-
-
-        implementation "androidx.lifecycle:lifecycle-process:2.2.0"
-    
-
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     testImplementation 'junit:junit:'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

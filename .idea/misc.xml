@@ -3,16 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/drawable-v24/btnbck.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/drawable-v24/textbck.xml" value="0.22135416666666666" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.22135416666666666" />
+        <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.22135416666666666" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/drawable/ic_check.xml" value="0.22135416666666666" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/activity_changepassword.xml" value="0.175" />
+        <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/activity_filters.xml" value="0.20104166666666667" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/activity_image_display.xml" value="0.175" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/activity_passcodeset.xml" value="0.175" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/activity_password.xml" value="0.175" />
+        <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/activity_picture_edit.xml" value="0.20520833333333333" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/askpassword.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/deletefolderpopup.xml" value="0.20520833333333333" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/deleteimagepopup.xml" value="0.20520833333333333" />
+        <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/done.xml" value="0.20104166666666667" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/foldernamepopup.xml" value="0.18931159420289856" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/folderpasswordpopup.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/indicator_holder.xml" value="0.20520833333333333" />
@@ -21,7 +28,10 @@
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/picture_browser.xml" value="0.20520833333333333" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/picture_browser_pager.xml" value="0.20520833333333333" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/picture_folder_item.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/layout/picturetext.xml" value="0.20520833333333333" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/menu/action_bar.xml" value="0.20520833333333333" />
+        <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20104166666666667" />
+        <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/menu/done.xml" value="0.20104166666666667" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/menu/fdrpasswordset.xml" value="0.20520833333333333" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/menu/foldermenu.xml" value="0.20520833333333333" />
         <entry key="..\:/AndroidStudioProjects/Image_Vault/app/src/main/res/menu/menu.xml" value="0.20520833333333333" />

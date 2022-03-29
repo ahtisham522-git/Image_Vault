@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -44,7 +45,7 @@ public class pictureBrowserFragment extends Fragment implements imageIndicatorLi
     private Context animeContx;
     private PhotoView image;
     private Button back;
-    ImageButton trsh,edtpbtn;
+    ImageButton trsh,edtpbtn,share;
     TextView cancl,del;
     private ViewPager imagePager;
     private RecyclerView indicatorRecycler;
@@ -195,6 +196,7 @@ public class pictureBrowserFragment extends Fragment implements imageIndicatorLi
               edtpbtn=view.findViewById(R.id.editbutton);
               back=view.findViewById(R.id.back);
               trsh=view.findViewById(R.id.trashimg);
+            share=view.findViewById(R.id.shareimage);
 
             ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
@@ -288,6 +290,30 @@ back.setOnClickListener(new View.OnClickListener()
                     String uti =  Uri.fromFile(new File(pic.getPicturePath())).toString();
                     intent.putExtra("image",uti);
                     startActivity(intent);
+                }
+
+            });
+
+            share.setOnClickListener(new View.OnClickListener()
+            {
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getActivity(), PictureEdit.class);
+                    String pt=pic.getPicturePath();
+                    Uri imgUri = Uri.parse(pt);
+                    Intent whatsappIntent = new Intent(Intent.ACTION_SEND);
+                    whatsappIntent.setType("text/plain");
+                    whatsappIntent.setPackage("com.whatsapp.w4b");
+                    whatsappIntent.putExtra(Intent.EXTRA_STREAM, imgUri);
+                    whatsappIntent.setType("image/jpeg");
+                    whatsappIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+                    try {
+                        animeContx.startActivity(whatsappIntent);
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        Toast.makeText(animeContx,"Whatsapp have not been installed.",Toast.LENGTH_LONG).show();
+
+                    }
                 }
 
             });

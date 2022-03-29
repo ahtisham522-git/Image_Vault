@@ -53,7 +53,7 @@
         android:layout_height="45dp"
        android:layout_alignParentBottom="true"
         android:text="Crop Rotate"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="80dp"
         android:textColor="@color/white"
         android:textSize="8dp"
         android:drawableTop="@drawable/ic_baseline_crop_rotate_24"
@@ -70,7 +70,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:text="Filters"
-        android:layout_marginRight="100dp"
+        android:layout_marginRight="150dp"
         android:textColor="@color/white"
         android:textSize="8dp"
         android:drawableTop="@drawable/ic_baseline_photo_filter_24"
@@ -78,6 +78,20 @@
         >
     </androidx.appcompat.widget.AppCompatButton>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/adtext"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Filters"
+        android:layout_marginRight="30dp"
+        android:textColor="@color/white"
+        android:textSize="8dp"
+        android:drawableTop="@drawable/ic_baseline_text_fields_24"
+        android:background="#4C5BF3"
+        >
+    </androidx.appcompat.widget.AppCompatButton>
 
 
     <View

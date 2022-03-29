@@ -31,12 +31,12 @@
         android:layout_below="@+id/hdr"></com.github.chrisbanes.photoview.PhotoView>
 
     <ImageButton
+        android:id="@+id/trashimg"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:id="@+id/trashimg"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="70dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="70dp"
         android:background="@drawable/ic_baseline_delete_24"
 
         ></ImageButton>
@@ -47,9 +47,20 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/ic_baseline_edit_24"
+
+        ></ImageButton>
+
+    <ImageButton
+        android:id="@+id/shareimage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="120dp"
+        android:background="@drawable/ic_baseline_share_24"
 
         ></ImageButton>
 

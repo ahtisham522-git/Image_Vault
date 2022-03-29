@@ -83,7 +83,6 @@ public class ImageDisplay extends AppCompatActivity implements itemClickListener
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         //getActionBar().setIcon(R.drawable.my_icon);
 
-
         back = findViewById(R.id.back);
         eepty = findViewById(R.id.empy);
         fldrname = (getIntent().getStringExtra("folderName"));
